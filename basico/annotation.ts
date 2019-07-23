@@ -3,14 +3,14 @@ import {
     PerformanceObserver
 } from 'perf_hooks';
 
-function teste(target, key, descriptor){
+function measurePerformance(target, key, descriptor){
     const originalFn = descriptor.value;
     descriptor.value = () => {
         performance.mark('A');
         return originalFn()
             .then(() => {
                 performance.mark('B');
-                performance.measure('teste', 'A', 'B');
+                performance.measure(key, 'A', 'B');
             });
     };
     return descriptor;
@@ -18,7 +18,7 @@ function teste(target, key, descriptor){
 
 class AnnotationExample {
 
-    @teste
+    @measurePerformance
     asyncFn(){
         return new Promise(resolve => {
             setTimeout(() => {
@@ -33,7 +33,7 @@ const obs = new PerformanceObserver(list => {
     console.log(`Time for ('${entry.name}')`, entry.duration);
 });
 
-obs.observe({entryTypes: ['measure'], buffered: false});
+obs.observe({entryTypes: ['measure']});
 
 new AnnotationExample().asyncFn();
 

@@ -12,7 +12,6 @@ const comForOf = array => {
     }
 };
 
-
 const forEach = performance.timerify(comForEach);
 const forForOf = performance.timerify(comForOf);
 
@@ -20,7 +19,7 @@ const obs = new PerformanceObserver(list => {
     console.log(list.getEntries());
 });
 
-obs.observe({entryTypes: ['function'], buffered: true});
+obs.observe({entryTypes: ['function']});
 
 forEach(arrayDeAnimais);
 forForOf(arrayDeAnimais);

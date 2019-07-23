@@ -18,7 +18,7 @@ const obs = new PerformanceObserver(list => {
     console.log(`Time for ('${entry.name}')`, entry.duration);
 });
 
-obs.observe({entryTypes: ['measure'], buffered: false});
+obs.observe({entryTypes: ['measure']});
 
 asyncFn(() => {
     console.log('foi');
