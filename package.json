@@ -1,0 +1,21 @@
+{
+  "name": "performance-hooks-talk",
+  "version": "1.0.0",
+  "description": "Repositório principal do código mostrado na talk sobre Performance Hook no 16º Meetup de Node.js POA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/ts-node/dist/bin.js index.ts"
+  },
+  "keywords": [
+    "performance",
+    "hooks"
+  ],
+  "author": "Mathias Gheno Azzolini",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
